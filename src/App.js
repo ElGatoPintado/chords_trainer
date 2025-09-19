@@ -39,6 +39,45 @@ function App() {
   const timer = useRef(null);
   const bpmNumber = Math.min(120, Math.max(20, Number(bpm) || 40));
 
+  const wakeLock = useRef(null);
+
+  useEffect(() => {
+    async function requestWakeLock() {
+      try {
+        if ("wakeLock" in navigator) {
+          wakeLock.current = await navigator.wakeLock.request("screen");
+          wakeLock.current.addEventListener("release", () => {
+            console.log("Wake Lock released");
+          });
+          console.log("Wake Lock is active");
+        } else {
+          console.log("Wake Lock API not supported");
+        }
+      } catch (err) {
+        console.error("Failed to acquire Wake Lock:", err);
+      }
+    }
+
+    requestWakeLock();
+
+    // Освобождаем Wake Lock при уходе с страницы или потере видимости
+    function handleVisibilityChange() {
+      if (wakeLock.current && document.visibilityState === "visible") {
+        requestWakeLock();
+      }
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      if (wakeLock.current) {
+        wakeLock.current.release();
+        wakeLock.current = null;
+      }
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
   useEffect(() => {
     next();
     clearInterval(timer.current);
