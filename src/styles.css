@@ -1,0 +1,170 @@
+:root {
+  --primary-color: #8265a7;
+  --secondary-color: #c4c4c4;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2a1b3c;
+  color: var(--secondary-color);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background: #8265a7;
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  color: var(--secondary-color);
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  min-width: 120px;
+}
+
+input[type="number"] {
+  width: 80px;
+  font-size: 1.4rem;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 6px;
+  text-align: center;
+  background-color: var(--secondary-color);
+  color: #2a1b3c;
+  font-weight: 600;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+select {
+  font-size: 1.4rem;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: var(--secondary-color);
+  border: none;
+  color: #2a1b3c;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: #2a1b3c;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  user-select: none;
+}
+
+button:hover {
+  background-color: #8265a7;
+  color: var(--secondary-color);
+}
+
+.result {
+  margin-top: 32px;
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  padding: 24px 16px;
+  background-color: #2a1b3c;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+  user-select: none;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp-controls {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+}
+
+/* Кнопки увеличения ритма +5 */
+.btn-change-temp {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  padding: 10px 14px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  min-width: 48px;
+  box-shadow: none;
+  transition: all 0.25s ease;
+  margin-top: 6px;
+  align-self: center;
+}
+
+.btn-change-temp:hover {
+  background-color: var(--secondary-color);
+  color: #2a1b3c;
+  border-color: #2a1b3c;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 480px) {
+  .container {
+    padding: 32px 20px;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  label {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .result {
+    font-size: 4rem;
+    min-height: 80px;
+  }
+
+  button,
+  .btn-change-temp {
+    width: 100%;
+  }
+}
