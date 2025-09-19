@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/chords_trainer/static/css/main.5070062f.css",
-    "main.js": "/chords_trainer/static/js/main.033cec93.js",
+    "main.js": "/chords_trainer/static/js/main.78d9a593.js",
     "index.html": "/chords_trainer/index.html",
     "main.5070062f.css.map": "/chords_trainer/static/css/main.5070062f.css.map",
-    "main.033cec93.js.map": "/chords_trainer/static/js/main.033cec93.js.map"
+    "main.78d9a593.js.map": "/chords_trainer/static/js/main.78d9a593.js.map"
   },
   "entrypoints": [
     "static/css/main.5070062f.css",
-    "static/js/main.033cec93.js"
+    "static/js/main.78d9a593.js"
   ]
 }
